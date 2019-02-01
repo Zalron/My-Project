@@ -4,61 +4,69 @@ using UnityEngine;
 
 namespace Caprica
 {
-    public static class GalaxyConfig
+    namespace Data
     {
-        // this gets filled out by some king of "new Game" screen and is used by the Generate function to tune the game parameters
-        public static int NumPlayers = 8;
-        public static int NumStars = 50;
-        public static int GalaxyWidth = 100;
-
-        //Consider reading the defaults from a config file
-    }
-
-    public class Galaxy
-    {
-        public Galaxy()
+        public static class GalaxyConfig
         {
-            StarSystems = new List<StarSystem>();
+            // this gets filled out by some king of "new Game" screen and is used by the Generate function to tune the game parameters
+            public static int NumPlayers = 8;
+            public static int NumStars = 50;
+            public static int GalaxyWidth = 100;
+
+            //Consider reading the defaults from a config file
         }
 
-        //Total width/height/depth of the range of star positions in Unity world units
-        
-
-        private List<StarSystem> StarSystems;
-
-        public StarSystem GetStarSystem(int StarSystemId)
+        public class Galaxy
         {
-            return StarSystems[StarSystemId];
-        }
-
-        public void Generate()
-        {
-            // Fist pass, just make some random stars for us
-
-            int galaxyWidth = GalaxyConfig.GalaxyWidth;
-            for (int i = 0; i < GalaxyConfig.NumStars; i ++)
+            public Galaxy()
             {
-                StarSystem ss = new StarSystem();
-                ss.Position = new Vector3
-                    (
-                    Random.Range(-galaxyWidth / 2, galaxyWidth / 2),
-                    Random.Range(-galaxyWidth / 2, galaxyWidth / 2),
-                    Random.Range(-galaxyWidth / 2, galaxyWidth / 2)
-                    );
-                ss.Generate(/* Do we pass exactly what time of start system we want?*/);
-                StarSystems.Add(ss);
+                StarSystems = new List<StarSystem>();
             }
-            Debug.Log("Num Stars Generated:" + StarSystems.Count);
-        }
 
-        public void Save()
-        {
-            //Some kind of file handle?
-        }
+            //Total width/height/depth of the range of star positions in Unity world units
 
-        public void Load()
-        {
-            //Some kind of file handle?
+
+            private List<StarSystem> StarSystems;
+
+            public StarSystem GetStarSystem(int StarSystemId)
+            {
+                return StarSystems[StarSystemId];
+            }
+
+            public int GetNumStarSystems()
+            {
+                return StarSystems.Count;
+            }
+
+            public void Generate()
+            {
+                // Fist pass, just make some random stars for us
+
+                int galaxyWidth = GalaxyConfig.GalaxyWidth;
+                for (int i = 0; i < GalaxyConfig.NumStars; i++)
+                {
+                    StarSystem ss = new StarSystem();
+                    ss.Position = new Vector3
+                        (
+                        Random.Range(-galaxyWidth / 2, galaxyWidth / 2),
+                        Random.Range(-galaxyWidth / 2, galaxyWidth / 2),
+                        Random.Range(-galaxyWidth / 2, galaxyWidth / 2)
+                        );
+                    ss.Generate(/* Do we pass exactly what time of start system we want?*/);
+                    StarSystems.Add(ss);
+                }
+                Debug.Log("Num Stars Generated:" + StarSystems.Count);
+            }
+
+            public void Save()
+            {
+                //Some kind of file handle?
+            }
+
+            public void Load()
+            {
+                //Some kind of file handle?
+            }
         }
     }
 }

@@ -4,46 +4,49 @@ using UnityEngine;
 
 namespace Caprica
 {
-    public class PlanetGraphic
+    namespace Data
     {
-
-    }
-    public enum PlanetType
-    {
-        ASTEROID, GASGIANT, CONTINENTAL, GAIAN, OCEANIC, BARREN, RADIATED, TOXIC, DESERT, ARID, TUNDRA, JUNGLE
-    }
-
-    public enum PlanetSize
-    {
-        TINY, SMALL, MEDIUM, LARGE, HUGE
-    }
-
-    public enum PlanetRichness
-    {
-        VERYPOOR, POOR, ABUNDANT, RICH, VERYRICH
-    }
-
-    public class Planet
-    {
-        public PlanetGraphic PlanetGraphic;
-
-        public string Name;
-
-        public readonly int PlanetIndex;
-
-        
-        // Planet Traits might become a class that can apply their own logic?
-        public enum PlanetTrait
+        public class PlanetGraphic
         {
-            GOLDDEPOSIT, ARTIFACTWORLD
+
+        }
+        public enum PlanetType
+        {
+            ASTEROID, GASGIANT, CONTINENTAL, GAIAN, OCEANIC, BARREN, RADIATED, TOXIC, DESERT, ARID, TUNDRA, JUNGLE
         }
 
-        List<PlanetTrait> PlanetTraits;
+        public enum PlanetSize
+        {
+            TINY, SMALL, MEDIUM, LARGE, HUGE
+        }
 
-        PlanetType PlanetType;
+        public enum PlanetRichness
+        {
+            VERYPOOR, POOR, ABUNDANT, RICH, VERYRICH
+        }
 
-        public PlanetSize PlanetSize;
+        public class Planet
+        {
+            public PlanetGraphic PlanetGraphic;
 
-        public Colony Colony;
+            public string Name;
+
+            public readonly int PlanetIndex;
+
+
+            // Planet Traits might become a class that can apply their own logic?
+            public enum PlanetTrait
+            {
+                GOLDDEPOSIT, ARTIFACTWORLD
+            }
+
+            List<PlanetTrait> PlanetTraits;
+
+            PlanetType PlanetType;
+
+            public PlanetSize PlanetSize;
+
+            public Colony Colony;
+        }
     }
 }
