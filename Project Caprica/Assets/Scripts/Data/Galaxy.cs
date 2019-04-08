@@ -8,7 +8,7 @@ namespace Caprica
     {
         public static class GalaxyConfig
         {
-            // this gets filled out by some king of "new Game" screen and is used by the Generate function to tune the game parameters
+            // this gets filled out by some kind of "new Game" screen and is used by the Generate function to tune the game parameters
             public static int NumPlayers = 8;
             public static int NumStars = 50;
             public static int GalaxyWidth = 100;

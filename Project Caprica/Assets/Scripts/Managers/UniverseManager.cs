@@ -16,7 +16,7 @@ namespace Caprica
             Generate();
         }
 
-        public GalaxyVisuals GalaxyVisuals;
+        
 
         Galaxy galaxy;
 
@@ -33,7 +33,7 @@ namespace Caprica
             galaxy.Generate();
 
             //Tell our visual system to spawn the graphics
-            GalaxyVisuals.InitiateVisuals(galaxy);
+            ViewManager.Instance.GalaxyVisuals.InitiateVisuals(galaxy);
         }
     }
 }
